@@ -38,28 +38,29 @@ Actual time needed to complete: 11 Hours - Windows update, WSL 2 update, Nap upd
 
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: Skeleton Server
+Number and name of feature: Basic Landing
 
-Estimate of time needed to complete: 30 minutes
+Estimate of time needed to complete: 20 minutes
 
 Start time: 01:00
 
-Finish time: 00:00
+Finish time: 01:20
 
-Actual time needed to complete: 
+Actual time needed to complete: 20 minutes
 
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: 
+Number and name of feature: Basic Post
 
 Estimate of time needed to complete: 30 minutes
 
-Start time: 
+Start time: 01:20
 
-Finish time: 
+Finish time: 02:00
 
-Actual time needed to complete: 
+Actual time needed to complete: 40 minutes
 
+# Day 2
 -------------------------------------------------------------------------------------------------------
 
 Number and name of feature: 

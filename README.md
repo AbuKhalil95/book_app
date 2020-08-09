@@ -22,14 +22,67 @@ Today’s portion of the application involves requesting books from the API. The
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
 
-Number and name of feature: ________________________________
+# Day 1
+-------------------------------------------------------------------------------------------------------
 
-Estimate of time needed to complete: _____
+Number and name of feature: Skeleton Server
 
-Start time: _____
+Estimate of time needed to complete: 30 minutes
 
-Finish time: _____
+Start time: 14:00
 
-Actual time needed to complete: _____
+Finish time: 01:00
+
+Actual time needed to complete: 11 Hours - Windows update, WSL 2 update, Nap update, doing other work, WSL finally works.
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: Skeleton Server
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 01:00
+
+Finish time: 00:00
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 
+
+Finish time: 
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 14:00
+
+Finish time: 
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 14:00
+
+Finish time: 
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+# Day 2

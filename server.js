@@ -14,7 +14,10 @@ app.set('view engine', 'ejs');
 const PORT = process.env.PORT || 3000;
 app.listen(PORT,() => console.log(`Listening on port ${PORT}`));
 
-app.get('/', function (req, res) {
+app.get('/hello', function (req, res) {
   res.render('./pages/index');
 });
 
+app.get('/', function (req, res) {
+  res.render('./pages/searches/show');
+});

@@ -1,12 +1,25 @@
-<ul>
+<section>
+  <h2>Total Books: <%= booksArray.length %></h1>
+  <ul>
     <% booksArray.forEach(element => { %>
       <li class="card">
-        <img src=<%= element.url %>>
+        <img src=<%= element.image_url %>>
         <h1><%= element.title %></h1>
         <h2><%= element.author %></h2>
         <p class="description"><%= element.description %></p>
         <p class="isbn"><%= element.isbn %></p>
-        <p class="genre"><%= element.genre %></p>
+        <p class="genre"><%= element.bookshelf %></p>
+
+        <form action="/books" method="POST">
+          <input type="hidden" name="image_url" id="image_url" value=<%= element.image_url %>>
+          <input type="hidden" name="title" id="title" value=<%= element.title %>>
+          <input type="hidden" name="author" id="author" value=<%= element.author %>>
+          <input type="hidden" name="description" id="description" value=<%= element.description %>>
+          <input type="hidden" name="isbn" id="isbn" value=<%= element.isbn %>>
+          <input type="hidden" name="bookshelf" id="bookshelf" value=<%= element.bookshelf %>>
+          <button type="submit">Add to Collection</button>
+        </form>
       </li>
    <% }) %>
-</ul>
+  </ul>
+</section>

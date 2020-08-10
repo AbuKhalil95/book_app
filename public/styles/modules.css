@@ -1,0 +1,5 @@
+header ul, footer ul {
+  display: flex;
+  justify-content: space-evenly;
+
+}

@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book App</title>
-  <link rel="stylesheet" href="styles/base.css">
-  <link href="styles/layout.css">
-  <link href="styles/modules.css">
 
-</head>
-<body>
-  <header>
-    <h1>Hello World</h1>
-  </header>
-
-  
-</body>
-</html>
+<main>
+  <% if(booksArray != 0){ %>
+    <%- include('./books/show') %>
+  <% } else { %>
+    <%- include('./searches/new') %>
+  <% } %>
+</main>

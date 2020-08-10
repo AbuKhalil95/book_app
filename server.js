@@ -10,10 +10,9 @@ const client = new pg.Client(process.env.DATABASE_URL);
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
-// app.use(expressLayouts);
+app.use(expressLayouts);
 
 const PORT = process.env.PORT || 3000;
 client.connect().then(() => {
@@ -24,11 +23,19 @@ app.get('/hello', function (req, res) {
   res.render('pages/index');
 });
 
-
 app.get('/', function (req, res) {
   let SQL = 'SELECT * FROM books;';
   client.query(SQL).then(result => {
     res.status(200).render('pages/index', {booksArray: result.rows});
+  });
+});
+
+app.get('/books/:id', function (req, res) {
+  let values = [req.params.id];
+  let SQL = 'SELECT * FROM books WHERE id=$1;';
+
+  client.query(SQL, values).then(result => {
+    res.status(200).render('pages/books/details', {booksArray: result.rows});
   });
 });
 

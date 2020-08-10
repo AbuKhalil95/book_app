@@ -1,5 +1,4 @@
 <section>
-  <h2>Total Books: <%= booksArray.length %></h1>
   <ul>
     <% booksArray.forEach(element => { %>
       <li class="card">
@@ -10,10 +9,9 @@
         <p class="isbn"><%= element.isbn %></p>
         <p class="genre"><%= element.bookshelf %></p>
       </li>
-  
-      <form action="/books/<%= element.id %>" method="GET">
-        <button type="submit">Details</button>
-      </form>
-   <% }) %>
+    <% }) %>
+    <form action="/" method="GET">
+      <button type="submit">Return to Main Menu</button>
+    </form>
   </ul>
 </section>

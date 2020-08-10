@@ -18,15 +18,15 @@ h1 {
 
 body {
 	display: grid;
-	grid-template-columns: 1fr 480px 1fr;
-	grid-template-rows: 50px 1055px 50px;
+	grid-template-columns: 
+	grid-template-rows: 
 
 }
 
 @media all and (min-width: 960px) {
   body {
-		grid-template-columns: 1fr 960px 1fr;
-    	grid-template-rows: 50px 700px 50px;
+		grid-template-columns: 
+    	grid-template-rows: 
 
 	}
 }

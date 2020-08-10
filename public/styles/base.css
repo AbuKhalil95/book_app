@@ -11,6 +11,10 @@ h1 {
   background-color: rgb(207, 100, 68);
 }
 
+ul, li {
+	text-decoration: none;
+	list-style: none;
+}
 
 * {
   box-sizing: border-box;
@@ -18,15 +22,14 @@ h1 {
 
 body {
 	display: grid;
-	grid-template-columns: 
-	grid-template-rows: 
-
+	grid-template-columns: 1fr 460px 1fr;
+	grid-template-rows:  1fr 50px 1fr;
 }
 
 @media all and (min-width: 960px) {
   body {
-		grid-template-columns: 
-    	grid-template-rows: 
+		grid-template-columns: 1fr 80% 1fr;
+		grid-template-rows:  120px 1fr 80px;
 
 	}
 }

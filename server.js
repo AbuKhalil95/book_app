@@ -35,8 +35,13 @@ app.get('/books/:id', function (req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
 
   client.query(SQL, values).then(result => {
+    console.log(result.rows);
     res.status(200).render('pages/books/details', {booksArray: result.rows});
   });
+});
+
+app.get('/searches/new', function (req, res) {
+  res.render('pages/index', {booksArray: 0});
 });
 
 app.post('/searches', function (req, res) {
@@ -52,6 +57,18 @@ app.post('/searches', function (req, res) {
       booksArray: bookData.body.items.map(element => new Book(element))
     });
   })
+});
+
+app.post('/books', (req, res) => {
+  let SQL = `INSERT INTO books (title, author, isbn, image_url, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
+  let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.body.bookshelf];
+  
+  client.query(SQL, values)
+    .then(result => {
+      console.log(result.rows);
+
+      res.redirect(`/books/${result.rows[0].id}`);
+  });
 });
 
 app.use('*', (request, response) => response.render('pages/error'));

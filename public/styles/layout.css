@@ -1,17 +1,30 @@
+header {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  place-self: center;
+}
+
 main {
   
   background-color: rgb(131, 112, 112);
 
-  grid-column-start: 
-  grid-column-end: 
-  grid-row-start: 
-  grid-row-end: 
+  grid-column-start: 2;
+  grid-column-end: 3;
 
-  display:
-  grid-template-columns: 
-	grid-template-rows:
+
+  display:grid;
+  grid-template-columns: 1fr 400 1fr;
 }
 
+footer {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  place-self: center;
+}
 @media all and (min-width: 768px) and (max-width: 959px) {
   body > main {
     background-color: rgb(170, 148, 148);
@@ -22,7 +35,23 @@ main {
   body > main {
     background-color: rgb(224, 203, 203);
 
-    grid-template-columns:  
-    grid-template-rows:  
+    grid-template-columns:  1fr 90% 1fr
+    
+  }
+
+  main > * {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+  }
+
+  section > ul {
+    margin-top: 30px;
+  }
+  
+  .card {
+    padding: 20px;
+    margin: 20px auto;
+    width: 400px;
   }
 }

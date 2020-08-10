@@ -1,6 +1,8 @@
-<header>
-  <h1>Hello World</h1>
-</header>
+
 <main>
-  <%- include('./books/show') %>
+  <% if(booksArray != 0){ %>
+    <%- include('./books/show') %>
+  <% } else { %>
+    <%- include('./searches/new') %>
+  <% } %>
 </main>

@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book App</title>
-  <link rel="stylesheet" href="styles/base.css">
-  <link href="styles/layout.css">
-  <link href="styles/modules.css">
-
-</head>
-<body>
-  <header>
-    <h1>Hello World</h1>
-  </header>
-
-  
-</body>
-</html>
+<header>
+  <h1>Hello World</h1>
+</header>
+<main>
+  <h1>Total Books: <%= booksArray.length %></h1>
+  <ul>
+    <% booksArray.forEach(element => { %>
+      <li class="card">
+        <img src=<%= element.image_url %>>
+        <h1><%= element.title %></h1>
+        <h2><%= element.author %></h2>
+        <p class="description"><%= element.description %></p>
+        <p class="isbn"><%= element.isbn %></p>
+        <p class="genre"><%= element.bookshelf %></p>
+      </li>
+   <% }) %>
+</ul>
+</main>

@@ -63,6 +63,43 @@ Actual time needed to complete: 40 minutes
 # Day 2
 -------------------------------------------------------------------------------------------------------
 
+Number and name of feature: Basic Error
+
+Estimate of time needed to complete: 10 minutes
+
+Start time: 09:30
+
+Finish time: 09:40
+
+Actual time needed to complete: 1o minutes
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: Basic CSS
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 10:25
+
+Finish time: 
+
+Actual time needed to complete: 
+
+# Day 3
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: 
+
+Estimate of time needed to complete: 30 minutes
+
+Start time: 14:00
+
+Finish time: 
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+
 Number and name of feature: 
 
 Estimate of time needed to complete: 30 minutes
@@ -84,6 +121,3 @@ Start time: 14:00
 Finish time: 
 
 Actual time needed to complete: 
-
--------------------------------------------------------------------------------------------------------
-# Day 2

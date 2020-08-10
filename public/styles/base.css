@@ -10,3 +10,23 @@ h1 {
 .error {
   background-color: rgb(207, 100, 68);
 }
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 1fr 480px 1fr;
+	grid-template-rows: 50px 1055px 50px;
+
+}
+
+@media all and (min-width: 960px) {
+  body {
+		grid-template-columns: 1fr 960px 1fr;
+    	grid-template-rows: 50px 700px 50px;
+
+	}
+}

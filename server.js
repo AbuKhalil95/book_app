@@ -41,12 +41,13 @@ app.post('/searches', function (req, res) {
   })
 });
 
+app.use('*', (request, response) => response.render('./pages/error'));
 
 function Book(data) {
   this.title = data.volumeInfo.title || 'N/A';
   this.author = data.volumeInfo.authors || 'N/A';
   this.description = data.volumeInfo.authors || 'N/A';
-  this.isbn = data.volumeInfo && data.volumeInfo.industryIdentifiers && data.volumeInfo.industryIdentifiers[0] && data.volumeInfo.industryIdentifiers[0].identifier  || 'N/A';
+  this.isbn = data.volumeInfo.industryIdentifiers && data.volumeInfo.industryIdentifiers[0].identifier  || 'N/A';
   this.genre = data.volumeInfo.categories || 'N/A';
   this.url = data.volumeInfo.imageLinks.thumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
 }

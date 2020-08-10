@@ -1,0 +1,29 @@
+{
+  "name": "book_app",
+  "version": "1.0.0",
+  "description": "This week, you and your partner(s) will implement a basic full-stack application for a book list which will include the ability to search the Google Books API, add books to a database, and then render those books from a PostgreSQL database. You will also add the ability to update the details of a book or remove it from the collection.",
+  "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.3.0",
+    "superagent": "^6.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AbuKhalil95/book_app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AbuKhalil95/book_app/issues"
+  },
+  "homepage": "https://github.com/AbuKhalil95/book_app#readme"
+}

@@ -1,0 +1,12 @@
+
+body {
+  background-color: burlywood;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.error {
+  background-color: rgb(207, 100, 68);
+}

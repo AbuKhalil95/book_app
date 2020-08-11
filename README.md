@@ -79,43 +79,44 @@ Number and name of feature: Basic Database
 
 Estimate of time needed to complete: 1 hour
 
-Start time: 10:25
+Start time: 14:40
 
-Finish time: 
+Finish time: 16:40
 
-Actual time needed to complete: 
+Actual time needed to complete: 2 hours // messed up start with wrong configs
 
+# Day 3
 -------------------------------------------------------------------------------------------------------
 
 Number and name of feature: Advanced Routing
 
 Estimate of time needed to complete: 1 hour
 
-Start time: 10:25
+Start time: 14:25
 
-Finish time: 
+Finish time: 15:25
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hour
 
 -------------------------------------------------------------------------------------------------------
 
 Number and name of feature: Advanced CSS
 
-Estimate of time needed to complete: 1 hour
+Estimate of time needed to complete: 1.5 hours
 
-Start time: 10:25
+Start time: 15:30
 
-Finish time: 
+Finish time: 16:45 
 
-Actual time needed to complete: 
-# Day 3
+Actual time needed to complete: 1.25 hours
+
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: 
+Number and name of feature: Advanced Database
 
-Estimate of time needed to complete: 30 minutes
+Estimate of time needed to complete: 1.5 hours
 
-Start time: 14:00
+Start time: 16:50
 
 Finish time: 
 

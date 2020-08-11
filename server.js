@@ -14,23 +14,34 @@ app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 
+// connection 
 const PORT = process.env.PORT || 3000;
 client.connect().then(() => {
 app.listen(PORT,() => console.log(`Listening on port ${PORT}`));
 });
 
-app.get('/hello', function (req, res) {
-  res.render('pages/index');
-});
+// routes
+app.get('/', renderHome);   // gets all books
 
-app.get('/', function (req, res) {
+app.get('/books/:id', renderDetails); // gets details of a book
+
+app.get('/searches/new', renderSearch); // renders a search page
+
+app.post('/searches', renderSearchResult); // renders the results
+
+app.post('/books', addBook); // adds a book into all
+
+app.use('*', renderError);
+
+// functions from routes
+function renderHome(req, res) {
   let SQL = 'SELECT * FROM books;';
   client.query(SQL).then(result => {
     res.status(200).render('pages/index', {booksArray: result.rows});
   });
-});
+}
 
-app.get('/books/:id', function (req, res) {
+function renderDetails(req, res) {
   let values = [req.params.id];
   let SQL = 'SELECT * FROM books WHERE id=$1;';
 
@@ -38,13 +49,13 @@ app.get('/books/:id', function (req, res) {
     console.log(result.rows);
     res.status(200).render('pages/books/details', {booksArray: result.rows});
   });
-});
+}
 
-app.get('/searches/new', function (req, res) {
+function renderSearch(req, res) {
   res.render('pages/index', {booksArray: 0});
-});
+}
 
-app.post('/searches', function (req, res) {
+function renderSearchResult (req, res) {
   let searchQuery = req.body.bookSearch;
   let searchChoice = req.body.dataChoice;
   let maxResults = 10;
@@ -57,21 +68,23 @@ app.post('/searches', function (req, res) {
       booksArray: bookData.body.items.map(element => new Book(element))
     });
   })
-});
+}
 
-app.post('/books', (req, res) => {
+function addBook(req, res) {
   let SQL = `INSERT INTO books (title, author, isbn, image_url, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
   let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.body.bookshelf];
   
   client.query(SQL, values)
     .then(result => {
-      console.log(result.rows);
-
       res.redirect(`/books/${result.rows[0].id}`);
   });
-});
+}
 
-app.use('*', (request, response) => response.render('pages/error'));
+function renderError(req ,res) {
+  res.render('pages/error')
+}
+
+// constructor
 
 function Book(data) {
   this.title = data.volumeInfo && data.volumeInfo.title || 'N/A';

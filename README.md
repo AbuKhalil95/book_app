@@ -38,7 +38,7 @@ Actual time needed to complete: 11 Hours - Windows update, WSL 2 update, Nap upd
 
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: Basic Landing
+Number and name of feature: Basic Landing UI
 
 Estimate of time needed to complete: 20 minutes
 
@@ -75,7 +75,7 @@ Actual time needed to complete: 1o minutes
 
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: Basic CSS
+Number and name of feature: Basic Database
 
 Estimate of time needed to complete: 1 hour
 
@@ -85,6 +85,29 @@ Finish time:
 
 Actual time needed to complete: 
 
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: Advanced Routing
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 10:25
+
+Finish time: 
+
+Actual time needed to complete: 
+
+-------------------------------------------------------------------------------------------------------
+
+Number and name of feature: Advanced CSS
+
+Estimate of time needed to complete: 1 hour
+
+Start time: 10:25
+
+Finish time: 
+
+Actual time needed to complete: 
 # Day 3
 -------------------------------------------------------------------------------------------------------
 

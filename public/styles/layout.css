@@ -12,10 +12,7 @@ main {
 
   grid-column-start: 2;
   grid-column-end: 3;
-
-
-  display:grid;
-  grid-template-columns: 1fr 400 1fr;
+  text-align: center;
 }
 
 footer {
@@ -34,24 +31,17 @@ footer {
 @media all and (min-width: 960px) {
   body > main {
     background-color: rgb(224, 203, 203);
-
-    grid-template-columns:  1fr 90% 1fr
-    
+    grid-template-columns:  1fr 95% 1fr;
   }
 
   main > * {
     grid-column-start: 2;
     grid-column-end: 3;
-    text-align: center;
   }
 
   section > ul {
-    margin-top: 30px;
-  }
-  
-  .card {
-    padding: 20px;
-    margin: 20px auto;
-    width: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-flow: wrap;
   }
 }

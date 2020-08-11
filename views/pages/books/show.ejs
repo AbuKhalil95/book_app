@@ -7,13 +7,12 @@
         <h1><%= element.title %></h1>
         <h2><%= element.author %></h2>
         <p class="description"><%= element.description %></p>
-        <p class="isbn"><%= element.isbn %></p>
-        <p class="genre"><%= element.bookshelf %></p>
+        <h2 class="genre"><%= element.bookshelf %></p>
+
+        <form action="/books/<%= element.id %>" method="GET">
+          <button type="submit">Details</button>
+        </form>
       </li>
-  
-      <form action="/books/<%= element.id %>" method="GET">
-        <button type="submit">Details</button>
-      </form>
    <% }) %>
   </ul>
 </section>

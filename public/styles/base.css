@@ -11,7 +11,7 @@ h1 {
   background-color: rgb(207, 100, 68);
 }
 
-ul, li {
+ul, li, a {
 	text-decoration: none;
 	list-style: none;
 }
@@ -19,17 +19,18 @@ ul, li {
 * {
   box-sizing: border-box;
 }
+a {
+	color: #000000;
+}
 
 body {
 	display: grid;
-	grid-template-columns: 1fr 460px 1fr;
-	grid-template-rows:  1fr 50px 1fr;
+	grid-template-columns: 1fr 90% 1fr;
+	grid-template-rows:  120px 1fr 80px;
 }
 
-@media all and (min-width: 960px) {
-  body {
-		grid-template-columns: 1fr 80% 1fr;
-		grid-template-rows:  120px 1fr 80px;
-
-	}
+@media all and (min-width: 768px) and (max-width: 959px) {
+  body > main {
+    background-color: rgb(170, 148, 148);
+  }
 }

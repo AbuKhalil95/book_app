@@ -1,0 +1,20 @@
+header ul, footer ul {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.card {
+  padding: 20px;
+  margin: 20px auto;
+  width: 380px;
+  margin: 5px auto;
+}

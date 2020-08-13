@@ -35,9 +35,9 @@ app.post('/books', addBook); // adds a book into all
 
 app.get('/books/edit/:id', editBook); // renders an edit book page from all
 
-app.put('/books/update/:id', updateDB) // updates DB and redirects to books/:id
+app.put('/books/update/:id', updateBook) // updates DB and redirects to books/:id
 
-// app.get('/books/delete/:id', deleteBook); // renders an edit book page from all
+app.delete('/books/update/:id', deleteBook); // renders an edit book page from all
 
 app.use('*', renderError);
 
@@ -54,7 +54,6 @@ function renderDetails(req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
 
   client.query(SQL, values).then(result => {
-    console.log(result.rows);
     res.status(200).render('pages/books/details', {booksArray: result.rows});
   });
 }
@@ -73,11 +72,7 @@ function renderSearchResult (req, res) {
   .get(url)
   .then(bookData => {
     res.render('pages/searches/show', {
-      booksArray: bookData.body.items.map(element => {
-        console.log(element);
-        var book = new Book(element);
-        console.log(book);
-        return book;})
+      booksArray: bookData.body.items.map(element => new Book(element))
     });
   })
 }
@@ -109,16 +104,33 @@ function editBook(req, res) {
   });
 }
 
-function updateDB(request, response) {
+function updateBook(request, response) {
   // destructure variables
+  console.log(request.body)
+  let choiceShelf = '';
   let { title, author, isbn, image_url, description, bookshelf } = request.body;
   // need SQL to update the specific task that we were on
   let SQL = `UPDATE books SET title=$1, author=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7;`;
   // use request.params.task_id === whatever task we were on
-  let values = [title, author, isbn, image_url, description, bookshelf, request.params.id];
+  if (request.body.choice == 'new'){
+    choiceShelf = bookshelf[0];
+  } else if (request.body.choice == 'old') {
+    choiceShelf = bookshelf[1];
+  }
+  let values = [title, author, isbn, image_url, description, choiceShelf, request.params.id];
 
   client.query(SQL, values)
     .then(response.redirect(`/books/${request.params.id}`));
+}
+
+function deleteBook(request, response) {
+  // need SQL to update the specific task that we were on
+  let SQL = `DELETE from books WHERE id=$ 1;`;
+  // use request.params.task_id === whatever task we were on
+  let values = [request.params.id];
+
+  client.query(SQL, values)
+    .then(response.redirect(`/`));
 }
 
 function renderError(req ,res) {

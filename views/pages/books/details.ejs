@@ -13,7 +13,9 @@
             <button type="submit">Return to Main Menu</button>
           </form>
           <a href="/books/edit/<%= element.id %>" class="button">Edit Book Details</a>
-          <a href="/books/delete/<%= element.id %>" class="button">Delete Book</a>
+          <form action="/books/update/<%= element.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Book</button>
+          </form>
         </div>
       </li>
     <% }) %>

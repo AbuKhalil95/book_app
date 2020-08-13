@@ -19,15 +19,19 @@
         <label for="title">Title<input type="text" name="title" id="title" value="<%= element.title %>"></label>
         <label for="author">Author<input type="text" name="author" id="author" value=<%= element.author %>></label>
         <label for="description">Description<textarea form="form" type="text" name="description" id="description" rows="10"><%= element.description %></textarea></label>
-        <label for="isbn">ISBN<input type="text" name="isbn" id="isbn" value=<%= element.isbn %>></label>
+        <label for="isbn">ISBN<input type="text" name="isbn" id="isbn" value="<%= element.isbn %>"></label>
         <label for="bookshelf">Bookshelf
-          <input type="text" name="bookshelf" id="bookshelf" value=<%= element.bookshelf %>>
+          <input type="text" name="bookshelf" id="bookshelf" value="<%= element.bookshelf %>">
           <select name="bookshelf" id="bookshelf">
-          <option disabled selected>Choose Bookshelf</option>
+          <option disabled selected value="N/A">Choose Bookshelf</option>
           <% bookShelves.forEach(element => { %>
           <option value="<%= element.bookshelf %>"><%= element.bookshelf %></option>
           <% }); %>
           </select>
+          <div class="radio">
+            <label for="bookshelf">Your Input<input type="radio" name="choice" id="choice" value="new"></label>
+            <label for="bookshelf">Existing Selection<input type="radio" name="choice" id="choice" value="old"></label>
+          </div>
         </label>
         <button type="submit"><%- 'update' === formAction ? "Update Book" : "Add Book" %></button>
       </form>

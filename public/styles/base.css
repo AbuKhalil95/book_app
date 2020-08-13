@@ -25,7 +25,6 @@ a {
 
 body {
 	display: grid;
-	grid-template-columns: 1fr 90% 1fr;
 	grid-template-rows:  120px 1fr 80px;
 }
 

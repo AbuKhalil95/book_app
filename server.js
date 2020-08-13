@@ -6,6 +6,7 @@ const app = express();
 const expressLayouts = require('express-ejs-layouts');
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);
+const methodOverride = require('method-override');
 
 app.use(cors());
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+app.use(methodOverride('_method'));
 
 // connection 
 const PORT = process.env.PORT || 3000;
@@ -21,19 +23,25 @@ app.listen(PORT,() => console.log(`Listening on port ${PORT}`));
 });
 
 // routes
-app.get('/', renderHome);   // gets all books
+app.get('/', renderHome);   // renders all books
 
-app.get('/books/:id', renderDetails); // gets details of a book
+app.get('/books/:id', renderDetails); // renders details of a book
 
 app.get('/searches/new', renderSearch); // renders a search page
 
-app.post('/searches', renderSearchResult); // renders the results
+app.post('/searches', renderSearchResult); // appends results into result page
 
 app.post('/books', addBook); // adds a book into all
 
+app.get('/books/edit/:id', editBook); // renders an edit book page from all
+
+app.put('/books/update/:id', updateBook) // updates DB and redirects to books/:id
+
+app.delete('/books/update/:id', deleteBook); // renders an edit book page from all
+
 app.use('*', renderError);
 
-// functions from routes
+// callbacks from routes
 function renderHome(req, res) {
   let SQL = 'SELECT * FROM books;';
   client.query(SQL).then(result => {
@@ -46,7 +54,6 @@ function renderDetails(req, res) {
   let SQL = 'SELECT * FROM books WHERE id=$1;';
 
   client.query(SQL, values).then(result => {
-    console.log(result.rows);
     res.status(200).render('pages/books/details', {booksArray: result.rows});
   });
 }
@@ -72,7 +79,7 @@ function renderSearchResult (req, res) {
 
 function addBook(req, res) {
   let SQL = `INSERT INTO books (title, author, isbn, image_url, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id`;
-  let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, req.body.bookshelf];
+  let values = [req.body.title, req.body.author, req.body.isbn, req.body.image_url, req.body.description, JSON.stringify(req.body.bookshelf)];
   
   client.query(SQL, values)
     .then(result => {
@@ -80,17 +87,62 @@ function addBook(req, res) {
   });
 }
 
+function editBook(req, res) {
+  let values = [req.params.id];
+  let SQL = 'SELECT * FROM books WHERE id=$1;';
+
+  client.query(SQL, values).then(result => {
+    let allResults = result.rows;
+    let SQL = 'SELECT DISTINCT bookshelf FROM books;';
+
+    client.query(SQL).then(result => {
+    res.status(200).render('pages/books/edit', {
+      booksArray: allResults,
+      bookShelves: result.rows,
+      formAction: 'update'});
+    });
+  });
+}
+
+function updateBook(request, response) {
+  // destructure variables
+  console.log(request.body)
+  let choiceShelf = '';
+  let { title, author, isbn, image_url, description, bookshelf } = request.body;
+  // need SQL to update the specific task that we were on
+  let SQL = `UPDATE books SET title=$1, author=$2, isbn=$3, image_url=$4, description=$5, bookshelf=$6 WHERE id=$7;`;
+  // use request.params.task_id === whatever task we were on
+  if (request.body.choice == 'new'){
+    choiceShelf = bookshelf[0];
+  } else if (request.body.choice == 'old') {
+    choiceShelf = bookshelf[1];
+  }
+  let values = [title, author, isbn, image_url, description, choiceShelf, request.params.id];
+
+  client.query(SQL, values)
+    .then(response.redirect(`/books/${request.params.id}`));
+}
+
+function deleteBook(request, response) {
+  // need SQL to update the specific task that we were on
+  let SQL = `DELETE from books WHERE id=$ 1;`;
+  // use request.params.task_id === whatever task we were on
+  let values = [request.params.id];
+
+  client.query(SQL, values)
+    .then(response.redirect(`/`));
+}
+
 function renderError(req ,res) {
   res.render('pages/error')
 }
 
 // constructor
-
 function Book(data) {
   this.title = data.volumeInfo && data.volumeInfo.title || 'N/A';
   this.author = data.volumeInfo && data.volumeInfo.authors || 'N/A';
   this.isbn = data.volumeInfo && data.volumeInfo.industryIdentifiers && data.volumeInfo.industryIdentifiers[0].identifier  || 'N/A';
   this.image_url = data.volumeInfo && data.volumeInfo.imageLinks && data.volumeInfo.imageLinks.thumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
-  this.description = data.volumeInfo && data.volumeInfo.authors || 'N/A';
+  this.description = data.volumeInfo && data.volumeInfo.description || 'N/A';
   this.bookshelf = data.volumeInfo && data.volumeInfo.categories || 'N/A';
 }

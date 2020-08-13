@@ -122,9 +122,10 @@ Finish time:
 
 Actual time needed to complete: 
 
+# Day 4
 -------------------------------------------------------------------------------------------------------
 
-Number and name of feature: 
+Number and name of feature: Advanced UIX
 
 Estimate of time needed to complete: 30 minutes
 
@@ -134,14 +135,3 @@ Finish time:
 
 Actual time needed to complete: 
 
--------------------------------------------------------------------------------------------------------
-
-Number and name of feature: 
-
-Estimate of time needed to complete: 30 minutes
-
-Start time: 14:00
-
-Finish time: 
-
-Actual time needed to complete: 

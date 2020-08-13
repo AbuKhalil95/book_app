@@ -4,6 +4,12 @@ header ul, footer ul {
   margin: 20px;
 }
 
+section {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
 .description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -14,7 +20,34 @@ header ul, footer ul {
 
 .card {
   padding: 20px;
-  margin: 20px auto;
-  width: 380px;
+  width: 400px;
   margin: 5px auto;
+  background-color: rgb(194, 174, 141);
+  border: solid;
+  border-radius: 10px;
+}
+
+.card > img {
+  outline: #fff solid 5px;
+}
+
+.card > * {
+  margin: 5px;
+}
+
+@media all and (min-width: 960px) {
+  .card {
+    width: 350px;
+  }
+}
+
+button, .button {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }

@@ -8,10 +8,16 @@
         <p class="descriptionAll"><%= element.description %></p>
         <p class="isbn"><%= element.isbn %></p>
         <p class="genre"><%= element.bookshelf %></p>
+        <div class="buttons-container">
+          <form action="/" method="GET">
+            <button type="submit">Return to Main Menu</button>
+          </form>
+          <a href="/books/edit/<%= element.id %>" class="button">Edit Book Details</a>
+          <form action="/books/update/<%= element.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Book</button>
+          </form>
+        </div>
       </li>
     <% }) %>
-    <form action="/" method="GET">
-      <button type="submit">Return to Main Menu</button>
-    </form>
   </ul>
 </section>

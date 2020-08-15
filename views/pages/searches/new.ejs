@@ -1,8 +1,11 @@
-<section>
+<h2 class="view-title">Search a new book</h2>
+<section class="card">
   <form action="/searches" method="POST">
     <input type="text" name="bookSearch">
+    <div class="radio-container">      
       <label for="title">Title <input type="radio" name="dataChoice" id="title" value="title"></label>
       <label for="author">Author <input type="radio" name="dataChoice" id="author" value="author"></label>
+    </div>
     <button type="submit">Search</button>
   </form>
 </section>

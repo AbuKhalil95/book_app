@@ -37,7 +37,7 @@ app.get('/books/edit/:id', editBook); // renders an edit book page from all
 
 app.put('/books/update/:id', updateBook) // updates DB and redirects to books/:id
 
-app.delete('/books/update/:id', deleteBook); // renders an edit book page from all
+app.delete('/books/update/:id', deleteBook); // deletes the specified id
 
 app.use('*', renderError);
 
@@ -72,7 +72,9 @@ function renderSearchResult (req, res) {
   .get(url)
   .then(bookData => {
     res.render('pages/searches/show', {
-      booksArray: bookData.body.items.map(element => new Book(element))
+      booksArray: bookData.body.items.map(element => new Book(element)),
+      searchName: searchQuery,
+      searchIn: searchChoice
     });
   })
 }
@@ -125,7 +127,7 @@ function updateBook(request, response) {
 
 function deleteBook(request, response) {
   // need SQL to update the specific task that we were on
-  let SQL = `DELETE from books WHERE id=$ 1;`;
+  let SQL = `DELETE from books WHERE id=$1;`;
   // use request.params.task_id === whatever task we were on
   let values = [request.params.id];
 

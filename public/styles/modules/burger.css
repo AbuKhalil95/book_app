@@ -139,4 +139,16 @@
   #menuToggle input:checked ~ ul {
     transform: translate(0, 150px);
   }
+
+  #menuToggle .span {
+    position: absolute;
+    top: 16%;
+    left: 2%;
+  }
+
+  #menuToggle input {
+    position: absolute;
+    top: 7%;
+    left: 0%;
+  }
 }

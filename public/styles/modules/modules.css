@@ -10,6 +10,12 @@ section {
   padding: 20px;
 }
 
+.view-title {
+  width: 100%;
+  padding: 20px;
+  background-color: beige;
+}
+
 .description {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -25,6 +31,7 @@ section {
   background-color: rgb(194, 174, 141);
   border: solid;
   border-radius: 10px;
+  position: relative;
 }
 
 .card > img {
@@ -35,15 +42,22 @@ section {
   margin: 5px;
 }
 
-@media all and (min-width: 960px) {
-  .card {
-    width: 350px;
-  }
+.radio-container {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.buttons-container {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
 }
 
 button, .button {
   width: 100%;
-  background-color: #4CAF50;
+  background-color: #2f2d2b;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -51,3 +65,15 @@ button, .button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+button:hover, .button:hover {
+  background-color: #8a847f;
+}
+
+@media all and (min-width: 960px) {
+  .card {
+    width: 350px;
+  }
+}
+
+

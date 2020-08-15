@@ -1,5 +1,5 @@
 
-<h2 class="view-title"><h2 class="view-title"><%- 'update' === formAction ? "Update Task" : "Add A Task" %></h2></h2>
+<h2 class="view-title"><%- 'update' === formAction ? "Update Task" : "Add A Task" %></h2>
 <section>
   <ul>
     <% booksArray.forEach(element => { %>
@@ -17,7 +17,7 @@
       <form action="<%= action %>" method="POST" id="form">
         <label for="image_url">Image URL<input type="text" name="image_url" id="image_url" value=<%= element.image_url %>></label>
         <label for="title">Title<input type="text" name="title" id="title" value="<%= element.title %>"></label>
-        <label for="author">Author<input type="text" name="author" id="author" value=<%= element.author %>></label>
+        <label for="author">Author<input type="text" name="author" id="author" value="<%= element.author %>"></label>
         <label for="description">Description<textarea form="form" type="text" name="description" id="description" rows="10"><%= element.description %></textarea></label>
         <label for="isbn">ISBN<input type="text" name="isbn" id="isbn" value="<%= element.isbn %>"></label>
         <label for="bookshelf">Bookshelf
@@ -29,7 +29,7 @@
           <% }); %>
           </select>
           <div class="radio">
-            <label for="bookshelf">Your Input<input type="radio" name="choice" id="choice" value="new"></label>
+            <label for="bookshelf">Your Input<input type="radio" name="choice" id="choice" value="new" checked></label>
             <label for="bookshelf">Existing Selection<input type="radio" name="choice" id="choice" value="old"></label>
           </div>
         </label>
